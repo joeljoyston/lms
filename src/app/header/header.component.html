@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-lg navbar-primary sticky-top bg-dark" *ngIf="isLoggedIn">
+    <div class="container-fluid">
+    <div class="navbar-collapse">
+        <ul class="nav navbar-nav" *ngIf="!(userName==='') && userType==='admin'">                  
+                    <li class="nav-item" >
+                        <a class="nav-link" routerLink="addBook" routerLinkActive="active">Add Book</a>
+                    </li>
+                    <span class="navbar-text" style="color:gray;">|</span>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="editBook" routerLinkActive="active">Update Book</a>
+                    </li>
+                    <span class="navbar-text" style="color:gray;">|</span>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="deleteBook" routerLinkActive="active"> Delete Book</a>
+                    </li> 
+        </ul>
+        <ul class="nav navbar-nav" *ngIf="!(userName==='') && userType==='normal'">                  
+                    <li class="nav-item ">
+                        <a class="nav-link menuStyle" routerLink="borrow" routerLinkActive="active">Borrow</a>
+                    </li>
+                    <span class="navbar-text" style="color:gray;">|</span>
+                    <li class="nav-item ">
+                        <a  class="nav-link menuStyle" routerLink="return" routerLinkActive="active">Return</a>
+                    </li>
+        </ul>
+    </div>
+    <span *ngIf="isLoggedIn" style="color:white;">Welcome {{userName}} | </span>
+    <div *ngIf="isLoggedIn">
+        <button type="button" class="btn btn-primary" (click)="logOut()">
+            Log out
+        </button>
+    </div>
+</div>
+</nav>
+

@@ -1,0 +1,39 @@
+<div class="row">
+    <div class="col-sm-9">
+        List of Books Currently Issued to you
+        <button type="button"
+                (click)="returnBook()"
+                class="btn btn-sm btn-primary"
+                [disabled]="!(issueId!==-1)"
+        > Return Book </button>
+
+        
+        <table class="table table-sm table-bordered table-hover">
+            <thead>
+                <tr>
+                <th scope="col">Book Id</th>
+                <th scope="col">Issue Date</th>
+                <th scope="col">Return Date</th>
+                <th scope="col">Select Book</th>
+                </tr>
+            </thead>
+            <tbody >
+            <tr *ngFor="let book of issueDetails; index as i">
+            
+                <td>{{book.bookId}}</td>
+                <td>{{book.issueDate}}</td>
+                <td>{{book.returnDate}}</td>
+                <td>
+                    <input class="form-input-check" 
+                    type="radio"
+                    name="selectedBook"
+                    id={{i}}
+                    (click)="selectBook($event)"
+                    >
+                </td>
+            </tr>
+            </tbody>
+            
+        </table>
+    </div>
+</div>

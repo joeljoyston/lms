@@ -1,0 +1,131 @@
+
+
+
+<br />
+<div class="row text-center">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6">
+        <h4 style="text-align: center;">Delete Book</h4>
+        <br>
+        <form class="form-horizontal formStyle"  [formGroup]="bookDeleteForm" (ngSubmit)="onDelete()">
+            
+            <div class="form-group row">                
+                <label for="bookId" class="col-sm-5"> Book Id</label>
+                <div class="col-sm-4">
+                    <input  type="text"
+                            id="bookId"
+                            name="bookId"
+                            class="form-control"
+                            formControlName="bookId"
+                            [readonly]="disableBookId"
+                    >
+                </div>
+                <button class="btn btn-primary"
+                        type="button"
+                        (click)="loadBookDetails()">Load Book Details</button>
+            </div> 
+
+            <div class="form-group row">
+                <label for="bookTitle" class="col-sm-5"> Title</label>
+                <div class="col-sm-7">
+                <input  type="text"
+                        id="bookTitle"
+                        name="bookTitle"
+                        class="form-control"
+                        formControlName="bookTitle">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="author" class="col-sm-5"> Author(s)</label>
+                <div class="col-sm-7">
+                <input  type="text"
+                        id="author"
+                        name="author"
+                        class="form-control"
+                        formControlName="author">
+                </div>            
+            </div>
+            <div class="form-group row">
+                <label for="isbn" class="col-sm-5"> ISBN</label>
+                <div class="col-sm-7">
+                <input  type="text"
+                        id="isbn"
+                        name="isbn"
+                        class="form-control"
+                        formControlName="isbn">
+                </div>            
+            </div>
+
+            <div class="form-group row">
+                <label for="publisher" class="col-sm-5"> Publisher</label>
+                <div class="col-sm-7">
+                <input  type="text"
+                        id="publisher"
+                        name="publisher"
+                        class="form-control"
+                        formControlName="publisher">
+                </div>            
+            </div>
+
+            
+            <div class="form-group row">
+                <label for="publishYear" class="col-sm-5"> Year of Publishing</label>
+                <div class="col-sm-7">
+                <input  type="text"
+                        id="publishYear"
+                        name="publishYear"
+                        class="form-control"
+                        formControlName="publishYear">
+                </div>            
+            </div>
+
+            <div class="form-group row">
+                <label for="category" class="col-sm-5"> Category</label>
+                <div class="col-sm-7">
+                <select name="category" class="form-control" formControlName="category">
+                    <option value="Programming">Programming</option>
+                    <option value="DBMS">DBMS</option>
+                </select>
+                </div>            
+            </div>
+            
+            <div class="form-group row">
+                <label for="rackno" class="col-sm-5"> Rack Number </label>
+                <div class="col-sm-7">
+                <input  type="text"
+                        id="rackno"
+                        name="rackno"
+                        class="form-control"
+                        formControlName="rackno">
+                </div>            
+            </div>
+
+            <div class="form-group row">
+                <label for="status" class="col-sm-5"> Status </label>
+                <div class="col-sm-7">
+                <input  type="text"
+                        id="status"
+                        name="status"
+                        class="form-control"
+                        formControlName="status">
+                </div>            
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-3">
+                    <button type="submit" class="btn btn-primary"> Delete </button>    
+                </div>
+                <div class="col-sm-3">
+                    <button type="button" class="btn btn-warning" (click)="onReset()"> Clear </button>
+                </div>
+                
+            </div>
+
+        </form>
+    </div>
+</div>
+<br/>
+
+

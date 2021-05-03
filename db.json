@@ -1,0 +1,66 @@
+{
+  "books": [
+    {
+      "bookId": "1001",
+      "bookTitle": "Let Us C",
+      "author": "Yeshwant Kanetkar",
+      "isbn": "1244-4444-2222",
+      "publisher": "McGrawHill",
+      "publishYear": "1996",
+      "category": "Programming",
+      "rackno": "P001",
+      "status": "A",
+      "id": 1
+    },
+    {
+      "bookId": "1002",
+      "bookTitle": "RDBMS Concepts",
+      "author": "Balagurusamy",
+      "isbn": "1200-7855-1127",
+      "publisher": "Pearson",
+      "publishYear": "2012",
+      "category": "DBMS",
+      "rackno": "D002",
+      "status": "A",
+      "id": 2
+    },
+    {
+      "bookId": "1003",
+      "bookTitle": "OOP with C++",
+      "author": "Robert Lafore",
+      "isbn": "1009-7878-6655",
+      "publisher": "ElSevier",
+      "publishYear": "1990",
+      "category": "Programming",
+      "rackno": "P001",
+      "status": "A",
+      "id": 3
+    }
+  ],
+  "users": [
+    {
+      "userName": "joel",
+      "firstName": "Joel",
+      "lastName": "Joyston",
+      "password": "hello123",
+      "userType": "normal"
+    },
+    {
+      "userName": "libadmin",
+      "firstName": "Library",
+      "lastName": "Administrator",
+      "password": "admin123",
+      "userType": "admin"
+    }
+  ],
+  "issue": [
+    {
+      "userName": "joel",
+      "bookId": "1001",
+      "issueDate": "Mon May 03 2021",
+      "returnDate": "Sat May 08 2021",
+      "actualReturnDate": "2021-05-03T12:49:53.527Z",
+      "id": 1
+    }
+  ]
+}

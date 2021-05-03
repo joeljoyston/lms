@@ -1,0 +1,121 @@
+
+<div class="row" >
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6" >
+        <h4 style="text-align: center;">Add New Book</h4>
+        <br/>
+        <form class="form-horizontal formStyle" (ngSubmit)="onSubmit(addBookForm)" #addBookForm="ngForm">
+            <div class="form-group row">
+                <label for="bookId" class="col-sm-5"> Book Id</label>
+                <div class="col-sm-7">
+                    <input  type="text"
+                            id="bookId"
+                            name="bookId"
+                            ngModel
+                            class="form-control"
+                            required
+                            #bookId="ngModel">
+                </div>
+            </div> 
+
+            <div class="form-group row">
+                <label for="bookTitle" class="col-sm-5"> Title</label>
+                <div class="col-sm-7">
+                <input  type="text"
+                        id="bookTitle"
+                        name="bookTitle"
+                        ngModel
+                        class="form-control"
+                        required
+                        #bookTitle="ngModel">
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="author" class="col-sm-5"> Author(s)</label>
+                <div class="col-sm-7">
+                <input  type="text"
+                        id="author"
+                        name="author"
+                        ngModel
+                        class="form-control"
+                        required
+                        #author="ngModel">
+                </div>            
+            </div>
+            <div class="form-group row">
+                <label for="isbn" class="col-sm-5"> ISBN</label>
+                <div class="col-sm-7">
+                <input  type="text"
+                        id="isbn"
+                        name="isbn"
+                        ngModel
+                        class="form-control"
+                        required
+                        #isbn="ngModel">
+                </div>            
+            </div>
+
+            <div class="form-group row">
+                <label for="publisher" class="col-sm-5"> Publisher</label>
+                <div class="col-sm-7">
+                <input  type="text"
+                        id="publisher"
+                        name="publisher"
+                        ngModel
+                        class="form-control"
+                        required
+                        #publisher="ngModel">
+                </div>            
+            </div>
+
+            
+            <div class="form-group row">
+                <label for="publishYear" class="col-sm-5"> Year of Publishing</label>
+                <div class="col-sm-7">
+                <input  type="text"
+                        id="publishYear"
+                        name="publishYear"
+                        ngModel
+                        class="form-control"
+                        required
+                        #publishYear="ngModel">
+                </div>            
+            </div>
+
+            <div class="form-group row">
+                <label for="category" class="col-sm-5"> Category</label>
+                <div class="col-sm-7">
+                <select name="category" class="form-control" ngModel #category="ngModel">
+                    <option value="Programming">Programming</option>
+                    <option value="DBMS">DBMS</option>
+                </select>
+                </div>            
+            </div>
+            
+            <div class="form-group row">
+                <label for="rackno" class="col-sm-5"> Rack Number </label>
+                <div class="col-sm-7">
+                <input  type="text"
+                        id="rackno"
+                        name="rackno"
+                        ngModel
+                        class="form-control"
+                        required
+                        #rackno="ngModel">
+                </div>            
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-4"></div>
+                <div class="col-sm-2">
+                    <button type="submit" class="btn btn-primary"> Add </button>    
+                </div>
+                <div class="col-sm-2">
+                    <button type="reset" class="btn btn-warning"> Clear </button>
+                </div>                
+            </div>
+        </form>
+    </div>
+</div>
+<br />

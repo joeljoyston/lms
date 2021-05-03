@@ -1,0 +1,42 @@
+
+<div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4 ">
+        <h5 class="text-center">Enter your Credentials to Login</h5>        
+<form class="form-horizontal loginFormClass" (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm">
+    <div class="row">
+        <div class="form-group col-sm-12 text-center">
+            <label for="userName">User Name</label>
+            
+            <input  type="text" 
+                    id="userName"
+                    name="userName"
+                    ngModel
+                    class="form-control"
+                    #userName="ngModel"
+                    required>                    
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-sm-12 text-center">
+            <label for="password">Password</label>
+            
+            <input  type="password"
+                    id="password"
+                    name="password"
+                    class="form-control"
+                    ngModel
+                    #password="ngModel"
+                    required>
+     
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 text-center">
+            <button type="submit" class="btn btn-primary">Login</button>
+        </div>
+    </div>
+</form>
+</div>
+
+</div>
