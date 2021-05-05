@@ -23,6 +23,7 @@ export class AuthserviceService implements OnDestroy {
               ) { }
 
   validateCredential(url:string){
+    this.userDetails = [];
     return this.http.get<UserDetails[]>(url)
       .pipe(        
         tap(responseData => {
