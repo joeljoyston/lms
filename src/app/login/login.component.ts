@@ -15,6 +15,7 @@ export class LoginComponent implements OnInit {
 
   userDetails = new UserDetails('','','','','');
   baseURL : string ="https://my-json-server.typicode.com/joeljoyston/lms";
+  userValid : boolean = true;
 
   constructor(private auth : AuthserviceService,
               private router:Router) { }
