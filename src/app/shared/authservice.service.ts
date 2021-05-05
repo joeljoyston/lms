@@ -44,7 +44,7 @@ export class AuthserviceService implements OnDestroy {
         
         else {
             this.router.navigate(['/']);
-      }
+      }}
       ));
     
   }
