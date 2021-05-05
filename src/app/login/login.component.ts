@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
         else this.router.navigate(["/borrow"]);
       } else {
         this.userValid = false;
-        this.router.navigate(["/"]);
+        //this.router.navigate(["/"]);
         loginForm.reset();
       }
     });
