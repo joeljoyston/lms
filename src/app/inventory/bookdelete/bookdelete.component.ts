@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { BookDetails } from 'src/app/shared/book.model';
-import { DbserviceService } from 'src/app/shared/dbservice.service';
+import { BookDetails } from '../../shared/book.model';
+import { DbserviceService } from '../../shared/dbservice.service';
 
 @Component({
   selector: 'app-bookdelete',
@@ -14,6 +14,7 @@ export class BookdeleteComponent implements OnInit {
   bookDetails : BookDetails[]=[];
   searchBookId : string='';  
   disableBookId : boolean = false;
+  baseURL : string = "https://my-json-server.typicode.com/joeljoyston/lms";
 
   constructor(private dbs : DbserviceService) {
     this.bookDeleteForm = new FormGroup({
@@ -35,7 +36,7 @@ export class BookdeleteComponent implements OnInit {
   loadBookDetails() {
     this.bookDetails=[];
     console.log(this.bookDeleteForm.value.bookId);
-    const url = "http://localhost:3000/books?bookId=" + this.bookDeleteForm.value.bookId;
+    const url = this.baseURL + "/books?bookId=" + this.bookDeleteForm.value.bookId;
     
     this.dbs.fetchData(url)
     .subscribe(responseData => {   
@@ -67,7 +68,7 @@ export class BookdeleteComponent implements OnInit {
     const bookId = this.bookDeleteForm.value.bookId;
     const bookTitle = this.bookDeleteForm.value.bookTitle;
     //const url = "http://localhost:3000/books/" + this.bookDetails[0].id;
-    const url = "http://localhost:3000/books/1";
+    const url = this.baseURL + "/books/1";
     if(confirm("Are you sure you want to delete the details of this book " + bookId + " : " + bookTitle)){
       this.dbs.deleteData(url)
       .subscribe(responseData => {
