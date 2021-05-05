@@ -41,7 +41,7 @@ export class AuthserviceService implements OnDestroy {
           console.log("Hi from Auth Service" + this.userName);
           this.loggedInUser.next(this.user);
         }
-        }
+        
         else {
             this.router.navigate(['/']);
       }
