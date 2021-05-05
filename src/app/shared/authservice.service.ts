@@ -40,6 +40,11 @@ export class AuthserviceService implements OnDestroy {
     
   }
   
+  logOut(){
+    this.loggedInUser.next(null);
+    this.userName ='';
+  }
+  
   ngOnDestroy(){
     this.loggedInUser.unsubscribe();
   }
