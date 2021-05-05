@@ -8,7 +8,7 @@ import { AuthserviceService } from '../shared/authservice.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit, OnDestroy {
+export class HeaderComponent implements OnInit {
   isLoggedIn = false;
   private userSub= new Subscription();
   userName : string ='';
@@ -27,10 +27,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
     
   }
 
-  ngOnDestroy() {
-    this.userSub.unsubscribe();
-  }
-
+ 
   onLogOut(){
     
     this.isLoggedIn=false;
