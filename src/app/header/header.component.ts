@@ -31,10 +31,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
     this.userSub.unsubscribe();
   }
 
-  logOut(){
-    this.userSub.unsubscribe();
+  onLogOut(){
+    
     this.isLoggedIn=false;
-    this.userName='';
+    this.authService.logOut();
     this.router.navigate(['/']);
   }
 
