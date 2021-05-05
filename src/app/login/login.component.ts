@@ -41,8 +41,7 @@ export class LoginComponent implements OnInit {
       } else {
         this.userValid = false;
         this.router.navigate(["/"]);
-        loginForm.controls["userName"].setValue("");
-        loginForm.controls["password"].setValue("");
+        loginForm.reset();
       }
     });
     
