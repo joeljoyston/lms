@@ -5,3 +5,14 @@
     border-radius: 5px;
     align-content: right;
 }
+
+.errorText {
+  background-color: rgb(173, 110, 110);
+  border: 1px solid rgb(128, 36, 36);
+  color: rgb(112, 15, 15);
+  display: block;
+  border-radius: 3px;
+  font-size: smaller;
+  font-weight: bold;
+  text-align: center;
+}
