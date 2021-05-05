@@ -34,10 +34,16 @@ export class LoginComponent implements OnInit {
       console.log(this.userDetails);
       console.log("User Name in Login Component :" + this.auth.userName);
       console.log("User type" + this.auth.user.userType);
-      if(this.auth.user.userType==='admin')
-        this.router.navigate(['/addBook']);
-      else  
-      this.router.navigate(['/borrow']);
+      if (this.auth.user.userName != "") {
+        if (this.auth.user.userType === "admin")
+          this.router.navigate(["/addBook"]);
+        else this.router.navigate(["/borrow"]);
+      } else {
+        this.userValid = false;
+        this.router.navigate(["/"]);
+        loginForm.controls["userName"].setValue("");
+        loginForm.controls["password"].setValue("");
+      }
     });
     
     
