@@ -43,6 +43,7 @@ export class AuthserviceService implements OnDestroy {
   logOut(){
     this.loggedInUser.next(null);
     this.userName ='';
+    this.router.navigate(['/login']);
   }
   
   ngOnDestroy(){
