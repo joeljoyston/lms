@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { BookDetails } from 'src/app/shared/book.model';
-import { DbserviceService } from 'src/app/shared/dbservice.service';
+import { BookDetails } from '../../shared/book.model';
+import { DbserviceService } from '../../shared/dbservice.service';
 
 @Component({
   selector: 'app-bookadd',
@@ -10,7 +10,7 @@ import { DbserviceService } from 'src/app/shared/dbservice.service';
 })
 export class BookaddComponent implements OnInit {
 
-  
+  baseURL : string ="https://my-json-server.typicode.com/joeljoyston/lms";
 
   constructor(private dbs : DbserviceService) { }
 
@@ -30,7 +30,7 @@ export class BookaddComponent implements OnInit {
       "status": "A"
     };
 
-    const url ="http://localhost:3000/books";
+    const url =this.baseURL + "/books";
 
     this.dbs.postData(url,reqBody);
     alert("Book Added Successfully");
