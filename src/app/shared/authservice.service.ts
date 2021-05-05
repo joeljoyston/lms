@@ -30,6 +30,7 @@ export class AuthserviceService implements OnDestroy {
           for (const key in responseData) {
             this.userDetails.push(responseData[key]);
           }
+          if(this.userDetails.length > 0) {
           this.user = new UserDetails(this.userDetails[0].userName,
             this.userDetails[0].firstName,
             this.userDetails[0].lastName,
@@ -40,15 +41,17 @@ export class AuthserviceService implements OnDestroy {
           console.log("Hi from Auth Service" + this.userName);
           this.loggedInUser.next(this.user);
         }
-      
+        }
+        else {
+            this.router.navigate(['/']);
+      }
       ));
     
   }
   
   logOut(){
-    this.loggedInUser.next(null);
     this.userName ='';
-    this.router.navigate(['/login']);
+    this.router.navigate(['/']);
   }
   
   ngOnDestroy(){
