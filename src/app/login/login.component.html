@@ -2,11 +2,13 @@
 <div class="row">
     <div class="col-sm-4"></div>
     <div class="col-sm-4 ">
-        <h5 class="text-center" *ngIf="userValid">Enter your Credentials to Login</h5>  
-      <span class="errorText" *ngIf="!userValid">
+       <h5 class="text-center" *ngIf="userValid  && (!userName.touched)">
+      Enter your Credentials to Login
+      </h5>
+      <span class="errorText" *ngIf="!userValid && (!userName.touched)">
       Invalid Login Credentials. Please try logging in again
-      </span>
-      <span class="errorText" *ngIf="!userName.valid && userName.touched">
+    </span>
+    <span class="errorText" *ngIf="!userName.valid && userName.touched">
       Please enter your username
     </span>
     <span class="errorText" *ngIf="!password.valid && password.touched">
