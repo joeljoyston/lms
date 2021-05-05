@@ -1,11 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { BookDetails } from 'src/app/shared/book.model';
-import { DbserviceService } from 'src/app/shared/dbservice.service';
+import { BookDetails } from '../../shared/book.model';
+import { DbserviceService } from '../../shared/dbservice.service';
 import { map, take } from 'rxjs/operators';
-import { AuthserviceService } from 'src/app/shared/authservice.service';
+import { AuthserviceService } from '../../shared/authservice.service';
 import { Subscription } from 'rxjs';
-import { UserDetails } from 'src/app/shared/user.model';
+import { UserDetails } from '../../shared/user.model';
 
 
 @Component({
@@ -21,6 +21,7 @@ export class SearchbookComponent implements OnInit, OnDestroy {
   selectedBookId : number=-1;
   selectedBookStatus : string ='N';
   userName : string='';
+  baseURL : string ="https://my-json-server.typicode.com/joeljoyston/lms";
   
 
   constructor(private dbs: DbserviceService,
@@ -37,7 +38,7 @@ export class SearchbookComponent implements OnInit, OnDestroy {
     this.searchClicked = false;
     this.bookDetails=[];
     console.log(searchForm.value.searchCategory);
-    const url = "http://localhost:3000/books" + "?" + searchForm.value.searchCategory + "=" + searchForm.value.searchVal;
+    const url = this.baseURL + "/books" + "?" + searchForm.value.searchCategory + "=" + searchForm.value.searchVal;
     this.dbs.fetchData(url)
     .subscribe(responseData => {   
         for(const key in responseData) {
@@ -57,7 +58,7 @@ export class SearchbookComponent implements OnInit, OnDestroy {
 
   onBorrowBook() {    
     console.log("User " + this.userName + " wants to borrow " + this.bookDetails[this.selectedBookId].bookTitle);
-    const issueUrl ="http://localhost:3000/issue";
+    const issueUrl = this.baseURL + "/issue";
     const issueDate = new Date();
     let returnDate = new Date();
     returnDate = new Date(returnDate.setDate(issueDate.getDate()+5));
@@ -74,7 +75,7 @@ export class SearchbookComponent implements OnInit, OnDestroy {
     /* Code to update status of the book */
 
     this.bookDetails[this.selectedBookId].status='B';
-    const booksUrl = "http://localhost:3000/books/" + this.bookDetails[this.selectedBookId].id;
+    const booksUrl = this.baseURL + "/books/" + this.bookDetails[this.selectedBookId].id;
     this.dbs.updateData(booksUrl,this.bookDetails[this.selectedBookId]);
   }
 
