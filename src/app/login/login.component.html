@@ -6,6 +6,12 @@
       <span class="errorText" *ngIf="!userValid">
       Invalid Login Credentials. Please try logging in again
       </span>
+      <span class="errorText" *ngIf="!userName.valid && userName.touched">
+      Please enter your username
+    </span>
+    <span class="errorText" *ngIf="!password.valid && password.touched">
+      Please enter your password
+    </span>
     <br />
 <form class="form-horizontal loginFormClass" (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm">
     <div class="row">
