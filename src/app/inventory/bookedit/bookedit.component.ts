@@ -14,6 +14,7 @@ export class BookeditComponent implements OnInit {
   searchBookId : string='';
   bookEditForm : FormGroup;
   disableBookId : boolean = false;
+  baseURL : string ="https://my-json-server.typicode.com/joeljoyston/lms";
 
  
   constructor(private dbs : DbserviceService) { 
@@ -39,7 +40,7 @@ export class BookeditComponent implements OnInit {
   loadBookDetails(){
     this.bookDetails=[];
     console.log(this.bookEditForm.value.bookId);
-    const url = "http://localhost:3000/books?bookId=" + this.bookEditForm.value.bookId;
+    const url = this.baseURL + "/books?bookId=" + this.bookEditForm.value.bookId;
     
     this.dbs.fetchData(url)
     .subscribe(responseData => {   
@@ -81,7 +82,7 @@ export class BookeditComponent implements OnInit {
       "status": this.bookEditForm.value.status
     };
 
-    const url ="http://localhost:3000/books/" + this.bookDetails[0].id;
+    const url = this.baseURL + "/books/" + this.bookDetails[0].id;
     this.dbs.updateData(url,reqBody);
     this.disableBookId=false;
     this.bookDetails=[];
