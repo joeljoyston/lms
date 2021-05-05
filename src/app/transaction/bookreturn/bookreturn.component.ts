@@ -1,10 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { map, take } from 'rxjs/operators';
-import { AuthserviceService } from 'src/app/shared/authservice.service';
-import { BookDetails } from 'src/app/shared/book.model';
-import { DbserviceService } from 'src/app/shared/dbservice.service';
-import { IssueDetails } from 'src/app/shared/issue.model';
+import { AuthserviceService } from '../../shared/authservice.service';
+import { BookDetails } from '../../shared/book.model';
+import { DbserviceService } from '../../shared/dbservice.service';
+import { IssueDetails } from '../../shared/issue.model';
 
 @Component({
   selector: 'app-bookreturn',
@@ -15,6 +15,7 @@ export class BookreturnComponent implements OnInit, OnDestroy {
   
   userName : string='';
   issueDetails : IssueDetails[]=[];
+  baseURL : string ="https://my-json-server.typicode.com/joeljoyston/lms";
   
   userSub = new Subscription();
   getReqSub = new Subscription();
@@ -37,7 +38,7 @@ export class BookreturnComponent implements OnInit, OnDestroy {
 
   loadBorrowedBookDetails() {
     this.issueDetails=[];
-    const url ="http://localhost:3000/issue?userName=" + this.userName +"&actualReturnDate=";
+    const url = this.baseURL + "/issue?userName=" + this.userName +"&actualReturnDate=";
     console.log(url);
     this.dbs.fetchIssueData(url).
     subscribe(responseData => {
@@ -57,7 +58,7 @@ export class BookreturnComponent implements OnInit, OnDestroy {
   returnBook() {
     
     this.issueDetails[this.issueId].actualReturnDate = new Date();
-    const url="http://localhost:3000/issue/" + this.issueDetails[this.issueId].id;
+    const url= this.baseURL + "/issue/" + this.issueDetails[this.issueId].id;
     
     this.dbs.updateIssueData(url,this.issueDetails[this.issueId])
     .subscribe(responseData => {
@@ -72,7 +73,7 @@ export class BookreturnComponent implements OnInit, OnDestroy {
     let borrowedBookDetails : BookDetails[]=[];
     console.log(this.issueId);
     console.log(this.issueDetails[this.issueId]);
-    const url="http://localhost:3000/books?bookId=" + this.issueDetails[this.issueId].bookId;
+    const url= this.baseURL + "/books?bookId=" + this.issueDetails[this.issueId].bookId;
     console.log(url);
     this.dbs.fetchData(url)
     .subscribe(responseData =>{
@@ -90,7 +91,7 @@ export class BookreturnComponent implements OnInit, OnDestroy {
   }
 
   updateBookDetails(book : BookDetails){
-    const url = "http://localhost:3000/books/" + book.id;
+    const url = this.baseURL + "/books/" + book.id;
     console.log(url);
     this.dbs.updateData(url,book);
   }
