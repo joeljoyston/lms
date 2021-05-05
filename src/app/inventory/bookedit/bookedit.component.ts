@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
-import { BookDetails } from 'src/app/shared/book.model';
-import { DbserviceService } from 'src/app/shared/dbservice.service';
+import { BookDetails } from '../../shared/book.model';
+import { DbserviceService } from '../../shared/dbservice.service';
 
 @Component({
   selector: 'app-bookedit',
