@@ -2,7 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, OnDestroy } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
+import { Router } from '@angular/router';
+
 import { UserDetails } from './user.model';
+
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +18,8 @@ export class AuthserviceService implements OnDestroy {
   userName : string='';
 
   
-  constructor(private http:HttpClient
+  constructor(private http:HttpClient,
+               private router: Router
               ) { }
 
   validateCredential(url:string){
