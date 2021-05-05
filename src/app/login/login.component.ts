@@ -14,6 +14,7 @@ import { UserDetails } from '../shared/user.model';
 export class LoginComponent implements OnInit {
 
   userDetails = new UserDetails('','','','','');
+  baseURL : string ="https://my-json-server.typicode.com/joeljoyston/lms";
 
   constructor(private auth : AuthserviceService,
               private router:Router) { }
@@ -27,7 +28,7 @@ export class LoginComponent implements OnInit {
     console.log(loginForm.value.userName);
     const userName = loginForm.value.userName;
     const password = loginForm.value.password;
-    const url ="http://localhost:3000/users?userName=" +userName + "&password=" + password;
+    const url = this.baseURL + "/users?userName=" +userName + "&password=" + password;
     this.auth.validateCredential(url).subscribe(userData => {
       console.log("User Data: " + userData)
       console.log(this.userDetails);
